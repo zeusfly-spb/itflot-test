@@ -28,12 +28,15 @@ export default {
   methods: {
     async userLogin() {
       try {
-        let response = await this.$auth.loginWith('local', { data: this.login })
+        let response = await this.$auth.loginWith('local', { data: this.login });
         console.log(response)
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
     }
+  },
+  mounted() {
+    console.log('This redirect: ' + this.$auth.user);
   }
 }
 </script>
