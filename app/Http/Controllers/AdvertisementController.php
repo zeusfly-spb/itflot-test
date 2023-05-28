@@ -16,11 +16,10 @@ class AdvertisementController extends Controller
 
     public function create(Request $request)
     {
-        $slug = Str::slug($request->input('name')) . '-' . Str::random(5);
-        $adv = Advertisement::create([
-            'name' => $request->input('name'),
-            'slug' => $slug,
-            'user_id' => Auth::id()
-        ]);
+        $inputs = $request->all();
+        $inputs['slug'] = Str::slug($inputs['name']) . '-' . Str::random(5);
+        $inputs['user_id'] = Auth::id();
+        $adv = Advertisement::create($inputs);
+        return response()->json($adv->toArray());
     }
 }

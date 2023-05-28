@@ -13,11 +13,13 @@
             label="Название объявления"
             v-model="name"
           />
+          <ImageUploader/>
         </v-card-text>
         <v-card-actions>
           <v-spacer/>
           <v-btn
             :disabled="!canSave"
+            @click="save"
           >
             Сохранить
           </v-btn>
@@ -28,6 +30,7 @@
 </template>
 
 <script>
+import ImageUploader from '../components/ImageUploader.vue';
 export default {
   name: 'Cabinet',
   data: () => ({
@@ -35,8 +38,17 @@ export default {
   }),
   computed: {
     canSave() {
-      return false;
+      return !!this.name.length;
     }
+  },
+  methods: {
+    async save() {
+      const res = await this.$axios.$post('/api/advert/add', { name: this.name });
+      console.log(res);
+    }
+  },
+  components: {
+    ImageUploader
   }
 }
 </script>

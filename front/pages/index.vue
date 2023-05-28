@@ -9,7 +9,7 @@
         />
         <v-pagination
           v-model="page"
-          :length="6"
+          :length="paginatorLength"
         />
       </div>
     </v-col>
@@ -22,6 +22,7 @@ export default {
   middleware: 'auth',
   data: () => ({
     res: null,
+    paginatorLength: 5,
   }),
   computed: {
     ads() {
@@ -54,6 +55,9 @@ export default {
   watch: {
     page(val) {
       val ? this.loadAds() : null;
+    },
+    res(val) {
+      this.paginatorLength = val.last_page;
     }
   }
 }
