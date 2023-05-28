@@ -1,13 +1,10 @@
 <template>
-  <div>
-    <div style="height: 15em"></div>
-    <v-layout align-center justify-center>
-    <v-flex xs12 md3 class="grey lighten-4">
-      <v-container class="text-xs-center">
-        <v-card>
-          <v-card-title primary-title>
-            <h4>Вход</h4>
-          </v-card-title>
+  <v-row justify="center" align="center" fill-height>
+    <v-col cols="8" sm="5" md="3">
+          <v-card>
+            <v-card-title primary-title>
+              <h4>Вход</h4>
+            </v-card-title>
             <v-text-field
               label="email"
               class="mr-4 ml-4"
@@ -30,11 +27,9 @@
                 ВХОД
               </v-btn>
             </v-card-actions>
-        </v-card>
-      </v-container>
-    </v-flex>
-    </v-layout>
-  </div>
+          </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script>

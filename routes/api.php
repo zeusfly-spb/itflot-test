@@ -22,5 +22,7 @@ Route::post('/register', [UserController::class, 'register']);
 
 Route::group(['middleware' => 'auth:api'], function(){
     Route::get('/details', [UserController::class, 'details']);
-    Route::post('/advertisements', [AdvertisementController::class, 'index']);
+    Route::prefix('advert')->group( function() {
+        Route::post('/', [AdvertisementController::class, 'index']);
+    });
 });

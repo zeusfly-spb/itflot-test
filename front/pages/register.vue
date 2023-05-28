@@ -1,9 +1,6 @@
 <template>
-  <div>
-    <div style="height: 10em"></div>
-    <v-layout align-center justify-center>
-    <v-flex xs12 md3 class="grey lighten-4">
-      <v-container class="text-xs-center">
+  <v-row justify="center" align="center" fill-height>
+    <v-col cols="8" sm="5" md="3">
         <v-card>
           <v-card-title primary-title>
             <h4>Регистрация</h4>
@@ -38,12 +35,9 @@
                 Регистрация
               </v-btn>
             </v-card-actions>
-
         </v-card>
-      </v-container>
-    </v-flex>
-    </v-layout>
-  </div>
+    </v-col>
+  </v-row>
 </template>
 
 <script>

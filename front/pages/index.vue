@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center" align="start" fill-height>
-    <v-col cols="12" sm="8" md="6">
+    <v-col cols="20" sm="10" md="8">
       <div class="main-list">
         <AdvItem
           v-for="(item, index) in ads"
@@ -15,7 +15,6 @@
     </v-col>
   </v-row>
 </template>
-
 <script>
 import AdvItem from '../components/AdvItem.vue';
 export default {
@@ -39,7 +38,7 @@ export default {
   },
   methods: {
     async loadAds() {
-      this.res = await this.$axios.$post('/api/advertisements', {page: this.page});
+      this.res = await this.$axios.$post('/api/advert/', {page: this.page});
     }
   },
   created() {
