@@ -71,6 +71,12 @@ export default {
           user: { url: '/api/details', method: 'get' }
         }
       }
+    },
+    redirect: {
+      login: '/login',
+      logout: '/login',
+      callback: '/login',
+      home: '/'
     }
   },
 

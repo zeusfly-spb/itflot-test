@@ -1,18 +1,39 @@
 <template>
   <div>
-    <form @submit.prevent="userLogin">
-      <div>
-        <label>Username</label>
-        <input type="text" v-model="login.email" />
-      </div>
-      <div>
-        <label>Password</label>
-        <input type="text" v-model="login.password" />
-      </div>
-      <div>
-        <button type="submit">Submit</button>
-      </div>
-    </form>
+    <div style="height: 15em"></div>
+    <v-layout align-center justify-center>
+    <v-flex xs12 md3 class="grey lighten-4">
+      <v-container class="text-xs-center">
+        <v-card>
+          <v-card-title primary-title>
+            <h4>Вход</h4>
+          </v-card-title>
+            <v-text-field
+              label="email"
+              class="mr-4 ml-4"
+              v-model="login.email"
+              @keyup.enter="userLogin"
+            />
+            <v-text-field
+              class="mr-4 ml-4"
+              label="Пароль"
+              type="password"
+              v-model="login.password"
+              @keyup.enter="userLogin"
+            />
+            <v-card-actions>
+              <v-spacer/>
+              <v-btn
+                primary
+                @click="userLogin"
+              >
+                ВХОД
+              </v-btn>
+            </v-card-actions>
+        </v-card>
+      </v-container>
+    </v-flex>
+    </v-layout>
   </div>
 </template>
 

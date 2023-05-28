@@ -14,9 +14,11 @@ class UserController extends Controller
      */
     public function register(Request $request)
     {
-        $input = $request->all();
-        $input['password'] = bcrypt($input['password']);
-        $user = User::create($input);
+        $user = User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password'))
+        ]);
         $success = [
             'token' => $user->createToken('MyApp')->accessToken,
             'name' => $user->name
