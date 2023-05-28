@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('advertisements', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 30);
-            $table->string('content')->default('');
+            $table->string('name', 30);
             $table->string('slug');
             $table->timestamps();
         });

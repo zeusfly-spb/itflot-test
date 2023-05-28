@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdvertisementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,5 @@ Route::post('/register', [UserController::class, 'register']);
 
 Route::group(['middleware' => 'auth:api'], function(){
     Route::get('/details', [UserController::class, 'details']);
+    Route::post('/advertisements', [AdvertisementController::class, 'index']);
 });

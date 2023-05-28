@@ -23,12 +23,24 @@
             Вход
           </NuxtLink>
         </div>
-        <v-btn
+        <div
           v-else
-          @click="$auth.logout()"
         >
-          Выход
-        </v-btn>
+          <NuxtLink
+            to="/cabinet"
+            style="margin-right: 1em"
+          >
+            Личный кабинет
+          </NuxtLink>
+          <NuxtLink
+            to=""
+            @click.prevent.native="$auth.logout()"
+            style="margin-right: 1em"
+          >
+            Выход
+          </NuxtLink>
+        </div>
+
       </v-app-bar>
       <v-main>
         <v-container>
@@ -38,6 +50,7 @@
       <v-footer
         app
       >
+        <v-spacer/>
         <span>&copy; {{ new Date().getFullYear() }}</span>
       </v-footer>
   </v-app>
