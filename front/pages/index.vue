@@ -1,15 +1,17 @@
 <template>
-  <v-row justify="center" align="center">
+  <v-row justify="center" align="start" fill-height>
     <v-col cols="12" sm="8" md="6">
-      <AdvItem
-        v-for="(item, index) in ads"
-        :item="item"
-        :key="index"
-      />
-      <v-pagination
-        v-model="page"
-        :length="6"
-      />
+      <div class="main-list">
+        <AdvItem
+          v-for="(item, index) in ads"
+          :item="item"
+          :key="index"
+        />
+        <v-pagination
+          v-model="page"
+          :length="6"
+        />
+      </div>
     </v-col>
   </v-row>
 </template>
@@ -57,3 +59,10 @@ export default {
   }
 }
 </script>
+<style scoped>
+.main-list {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+</style>

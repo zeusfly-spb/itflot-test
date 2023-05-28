@@ -1,8 +1,8 @@
 <template>
   <div class="adv-item">
-    <div>{{ item.id }}</div>
-    <div>{{ item.name }}</div>
-    <div>image</div>
+    <div class="field">{{ item.id }}</div>
+    <div class="field">{{ item.name }}</div>
+    <div class="field">image</div>
   </div>
 </template>
 
@@ -22,5 +22,9 @@ export default {
 .adv-item {
   display: flex;
   flex-direction: row;
+  margin: .3em;
+}
+.field {
+  margin-right: .3em;
 }
 </style>

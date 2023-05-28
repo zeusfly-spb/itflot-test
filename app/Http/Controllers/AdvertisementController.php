@@ -7,9 +7,8 @@ use Illuminate\Http\Request;
 
 class AdvertisementController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $page = 3;
-        return Advertisement::paginate(5);
+        return Advertisement::paginate(10);
     }
 }
