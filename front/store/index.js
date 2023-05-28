@@ -5,7 +5,9 @@ export const state = () => ({
 export const getters = {
   getCounter(state) {
     return state.counter
-  }
+  },
+  baseURLBackend: state => process.env.baseURLBackend,
+  storageUrl: state => process.env.baseURLBackend + '/storage/',
 }
 
 export const mutations = {

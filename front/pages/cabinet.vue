@@ -1,9 +1,13 @@
 <template>
   <v-row justify="center" align="start" fill-height>
-    <v-col cols="20" sm="10" md="8" style="background: aliceblue;   height: 80vh;">
+    <v-col
+      v-if="!saved"
+      cols="20" sm="10" md="8"
+      fill-height
+      style="background: aliceblue;"
+    >
       <v-card
         elevation="0"
-        style="height: 100%"
       >
         <v-card-title>
           Добавление объявления
@@ -13,7 +17,11 @@
             label="Название объявления"
             v-model="name"
           />
-          <ImageUploader/>
+          <ImageUploader
+            v-for="(item, index) in Array(fileCountLimit)"
+            :key="index"
+            @newImageId="onUpload"
+          />
         </v-card-text>
         <v-card-actions>
           <v-spacer/>
@@ -26,6 +34,21 @@
         </v-card-actions>
       </v-card>
     </v-col>
+    <v-col
+      cols="20" sm="10" md="8"
+      style="height: 100%!important;"
+      v-else
+    >
+      <v-card>
+        <v-card-text>
+          Объявление
+          <NuxtLink :to="`/adv/${saved.slug}`">
+            {{ saved.name }}
+          </NuxtLink>
+          сохранено
+        </v-card-text>
+      </v-card>
+    </v-col>
   </v-row>
 </template>
 
@@ -34,17 +57,23 @@ import ImageUploader from '../components/ImageUploader.vue';
 export default {
   name: 'Cabinet',
   data: () => ({
-    name: ''
+    saved: null,
+    name: '',
+    imageIds: [],
+    fileCountLimit: 10,
   }),
   computed: {
     canSave() {
-      return !!this.name.length;
+      return !!this.name.length && !!this.imageIds.length;
     }
   },
   methods: {
+    onUpload(id) {
+      this.imageIds.push(id);
+    },
     async save() {
-      const res = await this.$axios.$post('/api/advert/add', { name: this.name });
-      console.log(res);
+      const data = { name: this.name, image_ids: this.imageIds };
+      this.saved = await this.$axios.$post('/api/advert/add', { ...data });
     }
   },
   components: {
@@ -52,7 +81,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

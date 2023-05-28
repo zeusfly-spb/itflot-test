@@ -1,7 +1,10 @@
 <template>
-  <v-row justify="center" align="start" fill-height>
+  <v-row justify="center" align="center">
     <v-col cols="20" sm="10" md="8">
-      <div class="main-list">
+      <div
+        class="main-list"
+        v-if="ads.length"
+      >
         <AdvItem
           v-for="(item, index) in ads"
           :item="item"
@@ -11,6 +14,9 @@
           v-model="page"
           :length="paginatorLength"
         />
+      </div>
+      <div v-else>
+        Список объявлений пуст
       </div>
     </v-col>
   </v-row>
@@ -66,6 +72,6 @@ export default {
 .main-list {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
 }
 </style>

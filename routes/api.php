@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdvertisementController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +26,9 @@ Route::group(['middleware' => 'auth:api'], function(){
     Route::prefix('advert')->group( function() {
         Route::post('/', [AdvertisementController::class, 'index']);
         Route::post('/add', [AdvertisementController::class, 'create']);
+        Route::get('/show/{slug}', [AdvertisementController::class, 'show']);
+    });
+    Route::prefix('images')->group( function() {
+        Route::post('/add', [ImageController::class, 'store']);
     });
 });

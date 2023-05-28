@@ -27,8 +27,16 @@
           v-else
         >
           <NuxtLink
+            to="/"
+            style="margin-right: 1em"
+            v-if="$route.name !== 'index'"
+          >
+            Общий список
+          </NuxtLink>
+          <NuxtLink
             to="/cabinet"
             style="margin-right: 1em"
+            v-if="$route.name !== 'cabinet'"
           >
             Личный кабинет
           </NuxtLink>
@@ -43,7 +51,7 @@
 
       </v-app-bar>
       <v-main>
-        <v-container fill-height>
+        <v-container>
           <Nuxt />
         </v-container>
       </v-main>
