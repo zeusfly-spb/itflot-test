@@ -1,9 +1,8 @@
 <template>
-  <v-row justify="center" align="start" fill-height>
+  <v-row justify="center" align="start">
     <v-col
       v-if="!saved"
       cols="20" sm="10" md="8"
-      fill-height
       style="background: aliceblue;"
     >
       <v-card
@@ -18,8 +17,8 @@
             v-model="name"
           />
           <ImageUploader
-            v-for="(item, index) in Array(fileCountLimit)"
-            :key="index"
+            v-for="i in Array(fileCountLimit)"
+            :key="i"
             @newImageId="onUpload"
           />
         </v-card-text>
@@ -36,7 +35,6 @@
     </v-col>
     <v-col
       cols="20" sm="10" md="8"
-      style="height: 100%!important;"
       v-else
     >
       <v-card>

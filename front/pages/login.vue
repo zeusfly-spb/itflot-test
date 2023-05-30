@@ -1,33 +1,33 @@
 <template>
   <v-row justify="center" align="center" fill-height>
-    <v-col cols="8" sm="5" md="3">
-          <v-card>
-            <v-card-title primary-title>
-              <h4>Вход</h4>
-            </v-card-title>
-            <v-text-field
-              label="email"
-              class="mr-4 ml-4"
-              v-model="login.email"
-              @keyup.enter="userLogin"
-            />
-            <v-text-field
-              class="mr-4 ml-4"
-              label="Пароль"
-              type="password"
-              v-model="login.password"
-              @keyup.enter="userLogin"
-            />
-            <v-card-actions>
-              <v-spacer/>
-              <v-btn
-                primary
-                @click="userLogin"
-              >
-                ВХОД
-              </v-btn>
-            </v-card-actions>
-          </v-card>
+    <v-col cols="8" sm="5" md="3" fill-height >
+      <v-card>
+        <v-card-title primary-title>
+          <h4>Вход</h4>
+        </v-card-title>
+        <v-text-field
+          label="email"
+          class="mr-4 ml-4"
+          v-model="login.email"
+          @keyup.enter="userLogin"
+        ></v-text-field>
+        <v-text-field
+          class="mr-4 ml-4"
+          label="Пароль"
+          type="password"
+          v-model="login.password"
+          @keyup.enter="userLogin"
+        ></v-text-field>
+        <v-card-actions>
+          <v-spacer/>
+          <v-btn
+            primary
+            @click="userLogin"
+          >
+            ВХОД
+          </v-btn>
+        </v-card-actions>
+      </v-card>
     </v-col>
   </v-row>
 </template>
@@ -55,7 +55,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

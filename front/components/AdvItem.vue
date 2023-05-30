@@ -1,19 +1,18 @@
 <template>
-  <div
-    class="adv-item"
+  <v-card
+    style="padding: 10px!important;"
+    class="d-flex align-center justify-space-between mb-2"
     @click="redirect"
   >
     <div class="field">{{ item.id }}</div>
     <div class="field">{{ item.name }}</div>
     <div class="field"><em>{{ item.user.name }}</em></div>
-    <div class="field">
-      <img
-        style="max-height: 7em"
-        :src="firstImagePath && storageUrl + firstImagePath || null"
-        alt=""
-      />
-    </div>
-  </div>
+    <img
+      style="height: 7em"
+      :src="firstImagePath && storageUrl + firstImagePath || null"
+      alt=""
+    />
+  </v-card>
 </template>
 
 <script>
@@ -42,12 +41,6 @@ export default {
 </script>
 
 <style scoped>
-.adv-item {
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  margin: .3em;
-}
 .field {
   margin-right: .3em;
 }

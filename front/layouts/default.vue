@@ -43,7 +43,6 @@
           <NuxtLink
             to=""
             @click.prevent.native="$auth.logout()"
-            style="margin-right: 1em"
           >
             Выход
           </NuxtLink>
@@ -51,7 +50,7 @@
 
       </v-app-bar>
       <v-main>
-        <v-container>
+        <v-container fill-height>
           <Nuxt />
         </v-container>
       </v-main>

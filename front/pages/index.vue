@@ -1,8 +1,7 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="20" sm="10" md="8">
+  <v-row justify="center" align="start" fill-height>
+    <v-col cols="20" sm="10" md="8" fill-height>
       <div
-        class="main-list"
         v-if="ads.length"
       >
         <AdvItem
