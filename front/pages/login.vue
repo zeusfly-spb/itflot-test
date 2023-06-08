@@ -6,12 +6,16 @@
           <h4>Вход</h4>
         </v-card-title>
         <v-text-field
+          flat
+          filled
           label="email"
           class="mr-4 ml-4"
           v-model="login.email"
           @keyup.enter="userLogin"
         ></v-text-field>
         <v-text-field
+          flat
+          filled
           class="mr-4 ml-4"
           label="Пароль"
           type="password"
@@ -22,6 +26,7 @@
           <v-spacer/>
           <v-btn
             primary
+            class="mr-4 mb-4"
             @click="userLogin"
           >
             ВХОД
